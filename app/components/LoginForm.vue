@@ -55,8 +55,8 @@ export default {
       open: false,
       error: [],
       error_message: '',
-      email: 'eduardo.ckf@gmail.com',
-      password: 'olli123mac',
+      email: '',
+      password: '',
       recoverPassword: false    };
   },
   computed: {

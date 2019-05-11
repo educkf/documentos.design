@@ -1,37 +1,9 @@
-# :key:uxt
+# documentos.design
 
-> Keyuxt is a starter for Keystone.js with Nuxt.js
+> Refactoring of the website https://documentos.design, a website for researchers to share their documents collections for the study of brazilian graphic and product design history.
 
-```bash
-
-/api # rest-api from keystonejs and nuxt initialization
-/updates # default data for keystonejs
-/app # nuxt aplication
-    /components
-    /layouts
-    /pages
-```
-
-## Build Setup
-
-```bash
-
-# with docker
-$ docker-compose up
-
-# ----- OR -----
-
-# install dependencies
-$ npm install # Or yarn install
-
-# serve with hot reload at localhost:4000
-$ npm run dev
-
-# build for production and launch server
-$ npm start
-```
-
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js) and [Keystone.js docs](https://keystonejs.com/documentation/).
+Still a work in progress, definitly not ready for production use.
+I am using Nuxt.js and Keystone.js. For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js) and [Keystone.js docs](https://keystonejs.com/documentation/).
 
 Cloned and modified from [keyuxt](https://github.com/keycircle/keyuxt)
 
