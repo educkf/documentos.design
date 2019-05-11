@@ -3,8 +3,8 @@ require('dotenv').config();
 
 // Configuration
 const config = {
-  name: 'Keyuxt',
-  secret: '2ffe3a0fc464e8f0e5f7fd0ac76644935e4e3ab5ae9f13878e63f5ec874fa9505361760398ecd1c32724d0a8f6dbcc7eb42ba03d412983e8400517d38fa1d700',
+  name: 'Documentos.Design',
+  secret: process.env.SECRET,
   mongo: process.env.MONGO_DB,
   autoUpdate: 'false',
   port: process.env.PORT
