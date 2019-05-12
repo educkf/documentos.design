@@ -8,9 +8,9 @@
           <nuxt-link to="/" class="no-underline text-white hover:opacity-75">documentos.design</nuxt-link>
         </h1>
 
-        <ul class="list-reset flex mt-2">
+        <ul class="list-reset flex ">
           <li class="mr-6">
-            <a class="text-white no-underline opacity-75 hover:opacity-100" href="#">Acervos</a>
+            <nuxt-link to="/collections" class="text-white no-underline opacity-75 hover:opacity-100">Acervos</nuxt-link>
           </li>
           <li class="mr-6">
             <a class="text-white no-underline opacity-75 hover:opacity-100" href="#">Busca avançada</a>
@@ -23,7 +23,7 @@
           </li>
         </ul>
 
-        <ul class="list-reset flex mt-2"  v-if="authUser">
+        <ul class="list-reset flex "  v-if="authUser">
           <li class="mr-6">
             <a class="text-white no-underline opacity-75 hover:opacity-100" href="#">Minha conta</a>
           </li>
@@ -35,19 +35,27 @@
           </li>
         </ul>
 
-        <Dropdown  v-if="!authUser">
-          <span slot="link" class="appearance-none flex items-center inline-block text-white font-medium border border-white px-4 py-2 rounded">
-            <span class="mr-1">Login</span>
-            <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
-          </span>
-          <div slot="dropdown" class="bg-white shadow rounded border overflow-hidden">
+        <div class="flex" v-if="!authUser">
+          <ul class="list-reset flex mt-2">
+            <li class="mr-6">
+              <a class="text-white no-underline opacity-75 hover:opacity-100" href="#">Cadastrar</a>
+            </li>
+          </ul>
 
-            <LoginForm />
+          <Dropdown>
+            <span slot="link" class="appearance-none flex items-center inline-block text-white font-medium border border-white px-4 py-2 rounded">
+              <span class="mr-1">Login</span>
+              <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </span>
+            <div slot="dropdown" class="bg-white shadow rounded border overflow-hidden">
 
-          </div>
-        </Dropdown>
+              <LoginForm />
+
+            </div>
+          </Dropdown>
+        </div>
       </div>
     </header>
   </div>
@@ -68,16 +76,16 @@ export default {
   },
   computed: {
     authUser() {
-      return this.$store.state.authUser
+      return this.$store.state.User.authUser
     },
     user() {
-      return this.$store.state.user
+      return this.$store.state.User.user
     }
   },
   methods: {
     async logout() {
       try {
-        const response = await this.$store.dispatch('logout')
+        const response = await this.$store.dispatch('User/logout')
       } catch(err) {
         this.error = err
       }

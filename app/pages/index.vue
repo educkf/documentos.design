@@ -38,12 +38,12 @@ export default {
   },
   computed: {
     posts() {
-      return this.$store.state.posts
+      return this.$store.state.Posts.posts
     },     
   },
   async fetch ({ store, params }) {
     try {
-      await store.dispatch('getPosts')
+      await store.dispatch('Posts/getPosts')
 
     } catch(err) {
       console.log('\n\n\n\n\#####\n\n\n\n')

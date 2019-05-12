@@ -2,15 +2,15 @@
   <form class="px-4 pt-4 pb-4 mb-4 w-64" @submit.prevent="onSubmit()" v-if="!recoverPassword">
     <div class="mb-4">
       <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-        Username
+        Seu e-mail
       </label>
-      <input v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight text-sm focus:outline-none focus:shadow-outline" :class="{'border-red': error.includes('email')}" id="username" type="text" placeholder="Username">
+      <input v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight text-sm focus:outline-none focus:shadow-outline" :class="{'border-red': error.includes('email')}" id="username" type="text" placeholder="email@email.com">
     </div>
     <div class="mb-6">
       <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-        Password
+        Senha
       </label>
-      <input v-model="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" :class="{'border-red': error.includes('password')}" id="password" type="password">
+      <input v-model="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" :class="{'border-red': error.includes('password')}" id="password" type="password" placeholder="******">
       <p class="text-red text-xs italic" :class="{'border-red': error.includes('error')}">{{ error_message }}</p>
     </div>
     <div class="flex items-center justify-between">
@@ -27,9 +27,9 @@
     <p class="mb-4 text-sm leading-tight text-grey-dark">Insira seu e-mail que enviaremos o link para recuperar sua senha:</p>
     <div class="mb-4">
       <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-        E-mail
+        Seu e-mail
       </label>
-      <input v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight text-sm focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+      <input v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight text-sm focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="">
     </div>
     <div class="flex items-center justify-between">
       <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -85,7 +85,7 @@ export default {
       
       if (this.error.length == 0) {
         try {
-          const response = await this.$store.dispatch('login', { username: this.email, password: this.password })
+          const response = await this.$store.dispatch('User/login', { username: this.email, password: this.password })
           this.error.push('error')
           this.error_message = response;
 
