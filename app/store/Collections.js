@@ -10,6 +10,13 @@ export const mutations = {
   }
 }
 
+export const getters = {
+  my_collections: (state) => (userId) => {
+    if (userId) {
+      return state.list.filter(item => item.owner == userId)
+    }
+  }
+}
 
 export const actions = {
 

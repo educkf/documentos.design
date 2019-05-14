@@ -1,13 +1,7 @@
 <template>
- <div class="hero-foot footer-custom">
-    <div class="container has-text-centered">
-      <hr/>
-      <a class="nav-item" href="https://github.com/keycircle/keyuxt">
-        <span class="icon">
-          <i class="fa fa-github"></i>
-        </span>
-      </a>
-      <p>by <a href="https://github.com/keycircle/keyuxt">@keycircle/keyuxt</a></p>
+ <div class="container mx-auto">
+    <div class="container has-text-centered border-t mt-6 pt-6">
+      <p class="text-grey-dark">documentos.design 2019</p>
     </div>
   </div>
 </template>

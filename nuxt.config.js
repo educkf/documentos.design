@@ -49,9 +49,7 @@ module.exports = {
   */
   loading: { color: '#311b92' },
   css: [],
-  router: {
-    middleware: ['example'],
-  },
+  router: {},
   /*
   ** Build configuration
   */

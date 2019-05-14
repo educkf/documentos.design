@@ -1,6 +1,6 @@
 <template>
   <div class="layouts__frame">
-    <layout-header></layout-header>
+    <layout-header :lean="true"></layout-header>
     <div class="content-area">
       <nuxt/>
     </div>
