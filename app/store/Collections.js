@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { create } from 'domain';
 
 export const state = () => ({
   list: []
@@ -48,13 +49,30 @@ export const actions = {
 
   async getCollectionBySlug({ state }, slug) {
     try {
-      const response = await axios.get(`${process.env.KEYSTONE_URL}/api/v1/doc_collections/${slug}`, { withCredentials: true })
-      return response.data.collection
+      const { data } = await axios.get(`${process.env.KEYSTONE_URL}/api/v1/doc_collections/${slug}`, { withCredentials: true })
+      return data.doc_collection
 
     } catch(err) {
       console.log('\n\n\n\n\#####\n\n\n\n')
-      console.log('erro getCollection(): ', err)
+      console.log('erro getCollectionBySlug(): ', err)
       console.log('\n\n\n\n\#####\n\n\n\n')
     }    
+  },
+
+  async create({ rootState }, collData) {
+    try {
+      const { data } = await axios.post(`${process.env.KEYSTONE_URL}/api/v1/doc_collections/`, {
+        name: collData.name,
+        description: collData.description,
+        owner: rootState.User.authUser
+      })
+      console.log(data)
+      return data
+
+    } catch(err) {
+      console.log('\n\n\n\n\#####\n\n\n\n')
+      console.log('erro Collections/create(): ', err)
+      console.log('\n\n\n\n\#####\n\n\n\n')
+    }
   }
 }

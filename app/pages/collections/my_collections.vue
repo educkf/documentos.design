@@ -7,7 +7,7 @@
       <nuxt-link  
         v-if="authUser" 
         to="/collections/add"
-        class="block w-1/3 h-64 rounded overflow-hidden shadow-md bg-grey-lighter hover:bg-grey-lightest m-4 no-underline text-grey-darkest"
+        class="block w-1/4 h-64 rounded overflow-hidden shadow-md bg-grey-lighter hover:bg-grey-lightest m-4 no-underline text-grey-darkest"
       >
         <div class="px-6 py-4">
           <div class="font-bold text-2xl mt-4 mb-6">Criar novo</div>
@@ -18,7 +18,7 @@
       <nuxt-link :to="`/collections/${collection.key}`" 
         v-for="collection in my_collections(authUser)" 
         :key="collection._id" 
-        class="block w-1/3 h-64 rounded overflow-hidden shadow-md hover:bg-grey-lightest m-4 no-underline text-grey-darkest"
+        class="block w-1/4 h-64 rounded overflow-hidden shadow-md hover:bg-grey-lightest m-4 no-underline text-grey-darkest"
       >
         <div class=" px-6 py-4">
           <div class="font-bold text-2xl mt-4 mb-6">{{ collection.name }}</div>

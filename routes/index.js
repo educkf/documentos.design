@@ -38,7 +38,7 @@ exports = module.exports = function(app) {
   app.delete('/api/v1/posts/:id', routes.api.auth.checkAuth, keystone.middleware.api, routes.api.posts.remove); 
 
   app.get('/api/v1/doc_collections', keystone.middleware.api, routes.api.doc_collections.list);
-	app.get('/api/v1/doc_collections/:id', keystone.middleware.api, routes.api.doc_collections.get);
+	app.get('/api/v1/doc_collections/:slug', keystone.middleware.api, routes.api.doc_collections.get);
   app.post('/api/v1/doc_collections', routes.api.auth.checkAuth, keystone.middleware.api, routes.api.doc_collections.create);
   app.post('/api/v1/doc_collections/:id', routes.api.auth.checkAuth, keystone.middleware.api, routes.api.doc_collections.update);
   app.delete('/api/v1/doc_collections/:id', routes.api.auth.checkAuth, keystone.middleware.api, routes.api.doc_collections.remove); 

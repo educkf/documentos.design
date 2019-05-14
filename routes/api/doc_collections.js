@@ -34,7 +34,8 @@ exports.list = async function(req, res) {
  * Get DocCollection by ID
  */
 exports.get = async function(req, res) {
-	DocCollection.model.findById(req.params.id).exec(async function(err, item) {
+
+	DocCollection.model.findOne({ key: req.params.slug } , async function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
